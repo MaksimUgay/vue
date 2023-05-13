@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson-2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Выберите категорию</h1>
+        <form class="form" @submit.prevent="addPlayer">
+            <input type="text" v-model="player">
+            <p class="input-error">{{ inputError }}</p>
+            <select v-model="category">
+                <option>Rust</option>
+                <option >Dota</option>
+                <option>CS:GO</option>
+            </select>
+            <p class="category-error">{{ categoryError }}</p>
+            <button class="add-btn">Добавить игрока</button>
+            <div class="box">
+                <div class="item">
+                    <h2>Rust</h2>
+                    <ul class="list">
+                        <li v-for="(item, i) in rust" :key="i">
+                            {{ rust[i] }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h2>Dota</h2>
+                    <ul class="list">
+                        <li v-for="(item, i) in dota" :key="i">
+                            {{ dota[i] }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h2>CS:GO</h2>
+                    <ul class="list">
+                        <li v-for="(item, i) in csgo" :key="i">
+                            {{ csgo[i] }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
